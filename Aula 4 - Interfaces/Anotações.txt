@@ -1,0 +1,3 @@
+Interface age como uma classe abstrata
+    Clase abstrata --> pode ter método
+    Intercae --> vazio

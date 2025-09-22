@@ -1,0 +1,9 @@
+Abstrato (precisa ser implementado na subclasse)
+    base nao funciona
+
+: --> extends
+
+Override --> polimorfismo dinâmico
+    obrigado pela classe base a implementar
+
+base --> degrau da hierarquia super.
