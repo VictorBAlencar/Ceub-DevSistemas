@@ -1,5 +1,13 @@
-wimport tkinter as tk
+import tkinter as tk
 from tkinter import ttk #para abas
+
+#Lista
+lista_cadastro_clientes = [ #[] listas () tuplas {} dicionário
+    "Nome: Bruno Costa, Idade = 20, Email = bruno.costa@gmail.com",
+    "Nome: Gabriel Macedo, Idade = 25, Email = gabriel.macedo@gmail.com",
+    "Nome: Guilherme Toledo, Idade = 30, Email = guilherme.toledo@gmail.com",
+    "Nome: Gustavo Rocha, Idade = 29, Email = gustavo.rocha@gmail.com"
+]
 
 ###Funções
 def change_slider(valor): #string
@@ -11,6 +19,17 @@ def select_combo(event):
     valor = combo_options.get()
     if valor != "---Selecione---":
         label_comboValue.config(text = f"Opção de Notificação: {valor}")
+
+def show_data():
+    #Modo normal para editar
+    caixa_texto.config(state = "normal")
+    #limpar caixa antes para evitar dados duplicados
+    caixa_texto.delete("1.0", tk.END)
+    #juntar elementos da lista e quebra linha
+    texto_formatado = "\n".join(lista_cadastro_clientes) #ler ao contrário, cada elemento da lista junta à quebra de linha
+    caixa_texto.insert(tk.END, texto_formatado) #END vira o começo
+    #Modo disabled
+    caixa_texto.config(state = "disabled") 
 
 
 
@@ -48,11 +67,23 @@ btn_save.pack(pady = 10)
 label_window2 = ttk.Label(window2, text = "Área de Consulta")
 label_window2.pack(padx = 20, pady = 20)
 
-entry_nome = ttk.Entry(window2, text = "Formulário de Busca")
-entry_nome.pack(padx = 20, pady = 5)
+# entry_nome = ttk.Entry(window2, text = "Formulário de Busca")
+# entry_nome.pack(padx = 20, pady = 5)
 
 btn_search = ttk.Button(window2, text = "Buscar")
 btn_search.pack(pady = 10)
+btn_search.config(command = show_data)
+
+#Text -> caixa de texto usando Tkinter, nao ttk
+caixa_texto = tk.Text(
+    window2,
+    height = 20,
+    width = 60,
+    wrap = "word", #não quebra linha em fim de palavras
+    font = ("Arial", 10)
+)
+caixa_texto.pack(pady = 20, fill = "both", expand = True)
+caixa_texto.config(state = "disabled") #disabled só recebe texto
 
 ##Window3
 #Default State
