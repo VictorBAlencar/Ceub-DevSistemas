@@ -1,0 +1,22 @@
+{
+    "universidade": "CEUB",
+    "ano_letivo": 2025,
+    "aprovados": true,
+    "alunos": [
+        {
+            "nome": "Ana Silva",
+            "nota": 9.4,
+            "presenca": "100%"
+        },
+        {
+            "nome": "Tom Kevin",
+            "nota": 8.0,
+            "presenca": "86%"
+        },
+        {
+            "nome": "Ted Nill",
+            "nota": 10.0,
+            "presenca": "90%"
+        }
+    ]
+}
